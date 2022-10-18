@@ -17,16 +17,18 @@ cd HeavyIonsAnalysis/JetAnalysis/python/jets
 ./makeJetSequences.sh
 cd ../../../..
 # Dener's changes
-cp /afs/cern.ch/work/d/ddesouza/public/ForForest/TrackAnalyzer.cc $CMSSW_BASE/src/HeavyIonsAnalysis/TrackAnalysis/src/
+cp /afs/cern.ch/work/d/ddesouza/public/ForXeXeForest/TrackAnalyzer.cc $CMSSW_BASE/src/HeavyIonsAnalysis/TrackAnalysis/src/
+cp /afs/cern.ch/work/d/ddesouza/public/ForXeXeForest/HiGenAnalyzer_cfi.py $CMSSW_BASE/src/HeavyIonsAnalysis/JetAnalysis/python/
+cp /afs/cern.ch/work/d/ddesouza/public/ForXeXeForest/pfcandAnalyzer_cfi.py $CMSSW_BASE/src/HeavyIonsAnalysis/JetAnalysis/python/
+cp -r /afs/cern.ch/work/d/ddesouza/public/ForXeXeForest/workstation $CMSSW_BASE/src/HeavyIonsAnalysis/JetAnalysis/test/
 # Now compile and test
 scram build -j10
-# Once tests are done, go to:
+# Once tests are done, go to (work in this folder, please):
 cd $CMSSW_BASE/src/HeavyIonsAnalysis/JetAnalysis/test/workstation
-#for quick test go to quickcheck folder and run 
-cd quickcheck
-cmsRun runForestAOD_pPb_DATA_80X.py &> out.txt &
+#for quick test go to quickcheck folder and run (will run on bkg, use jobs to see job running)
+cmsRun runForestAOD_XeXe_DATA_94X.py &> out.txt &
 ```
-Each folder inside of ```workstation``` contain the crab configuration files to submit for different datasets. You do not need to change anything. Do not run for MC yet (will be updated soon).
+Inside of ```workstation``` is contained the crab configuration files to submit for all data and MC. You do not need to change anything. Do not run for MC yet (will be updated soon).
 To submit crab jobs you just need to use the following command (after the VOMS command):
 ```
 python crab_file.py
