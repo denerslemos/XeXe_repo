@@ -31,6 +31,7 @@ cmsRun runForestAOD_XeXe_DATA_94X.py &> out.txt &
 Inside of ```workstation``` is contained the crab configuration files to submit for all data and MC. You do not need to change anything. Do not run for MC yet (will be updated soon).
 To submit crab jobs you just need to use the following command (after the VOMS command):
 ```
+source /cvmfs/cms.cern.ch/crab3/crab.sh
 python crab_file.py
 ```
 The Forest root output files will be stored at SPRACE/Brazil.
